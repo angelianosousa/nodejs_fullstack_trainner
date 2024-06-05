@@ -16,9 +16,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
+app.use(bodyParser.json()); // API response en JSON
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(express.urlencoded({ extended: false }));
 app.use(connectAssets({
   paths: [path.join(__dirname, 'public/stylesheets'), path.join(__dirname, 'public/javascripts')]
 }));
@@ -27,10 +27,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var usersRouter = require('./controllers/users');
+var usersRouterApi = require('./controllers/api/v1/users');
 var homeRouter = require('./controllers/home');
 
 app.use('/', homeRouter);
 app.use('/users', usersRouter);
+app.use('/api/v1/users', usersRouterApi);
 
 
 // catch 404 and forward to error handler
