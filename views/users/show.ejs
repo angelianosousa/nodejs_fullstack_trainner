@@ -1,6 +1,11 @@
 <% layout('layouts/application') -%>
 
-<h3><%= title %></h3>
+<div class="d-flex justify-content-between mb-3">
+  <h3><%= title %></h3>
+
+  <a type="button" class="btn btn-secondary" href="/users">Voltar</a>
+</div>
+
 <ul>
   <li><%= user.name %></li>
   <li><%= user.email %></li>

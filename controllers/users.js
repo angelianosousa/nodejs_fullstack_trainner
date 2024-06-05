@@ -18,16 +18,10 @@ router.get('/', function(_req, res, _next) {
 // ================================================
 // VIEW USER BY ID
 // ================================================
-router.get('/:id', function(req, res, next) {
-  const id   = req.params.id;
-  const user = usersData.find((element) => element.id == id)
-  // const user = getUser(req)
-  console.log(id)
-  console.log(user)
+router.get('/show/:id', function(req, res, next) {
+  const user = getUser(req)
 
   res.render('users/show', { title: 'Detail User', user: user });
-  // res.render('users/index', { title: 'List of Users', users: usersData });
-
   next();
 });
 
