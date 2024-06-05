@@ -1,0 +1,18 @@
+<form method="POST" action="<%= url %>">
+  <div class="mb-3">
+    <label class="form-label">Nome</label>
+    <input type="text" name='name' value="<%= user.name %>" class="form-control" placeholder="Seu nome">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" name='email' value="<%= user.email %>" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Phone</label>
+    <input type="text" name='phone' value="<%= user.phone %>" class="form-control" placeholder="(85) 9 0000-0000">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>

@@ -1,0 +1,13 @@
+<% layout('layouts/application') -%>
+
+<div class="d-flex justify-content-between mb-3">
+  <h3><%= title %></h3>
+
+  <a type="button" class="btn btn-secondary" href="/users">Voltar</a>
+</div>
+
+<div class="card text-bg-light border-dark mb-3" style="width: 100%;">
+  <div class="card-body">
+    <%- include('_form', { user: user, url: '/users/create' }) %>
+  </div>
+</div>

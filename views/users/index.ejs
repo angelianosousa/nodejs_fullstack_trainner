@@ -1,0 +1,36 @@
+<% layout('layouts/application') -%>
+
+<div class="container mt-5">
+  <div class="d-flex justify-content-between">
+    <h3><%= title %></h3>
+
+    <a type="button" class="btn btn-primary" href="/users/new">New user</a>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach((user) => { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.phone %></td>
+          <td>
+            <a href="/users/<%= user.id %>" class="btn btn-info btn-sm text-white">Show</a>
+            <a href="/users/edit/<%= user.id %>" class="btn btn-secondary btn-sm">Edit</a>
+            <a href="/users/delete/<%= user.id %>" class="btn btn-danger btn-sm">Remover</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
