@@ -6,7 +6,7 @@ var logger = require('morgan');
 var ejsEngine = require('ejs-mate');
 var connectAssets = require('connect-assets');
 var methodOverride = require('method-override')
-var bodyParser = require("body-parser"); // Module for POST/GET datas
+var bodyParser = require("body-parser"); // Module for POST/GET 
 
 var app = express();
 
@@ -26,12 +26,15 @@ app.use(methodOverride('_method', {methods: ['GET', 'POST', 'PUT', 'DELETE']}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var usersRouter = require('./controllers/users');
+var usersRouter    = require('./controllers/users');
 var usersRouterApi = require('./controllers/api/v1/users');
+var sessionsRouter = require('./controllers/sessions');
+
 var homeRouter = require('./controllers/home');
 
 app.use('/', homeRouter);
 app.use('/users', usersRouter);
+app.use('/sessions', sessionsRouter);
 app.use('/api/v1/users', usersRouterApi);
 
 

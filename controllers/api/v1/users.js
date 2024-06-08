@@ -35,7 +35,7 @@ router.post('/create', function(req, res) {
   const { body } = req;
 
   db.User.create(body).then(user => {
-    if (user === 1) {
+    if (user) {
       res.status(201).json({ message: 'User was created successfully!', users: user })
     } else {
       res.status(422).json({ errors: 'User was not create...', users: user })
